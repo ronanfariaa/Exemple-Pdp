@@ -55,5 +55,18 @@ describe("Testes da Interface de Usuário", () => {
     { id: 2, nome: "Produto 2" },
   ];
 
+  describe("Testes da API de Produtos", () => {
+    test("deve retornar uma lista válida de produtos da API", async () => {
+      // Substitua a função fetch por uma versão mockada que retorna os produtos simulados
+      global.fetch = jest.fn().mockResolvedValue({
+        json: jest.fn().mockResolvedValue(mockProducts),
+      });
 
+      // Chama a função de carregar produtos
+      const produtos = await importedLoadProducts(0, 10);
+
+      // Assert
+      expect(produtos).toEqual(mockProducts);
+    });
+  });
 });
