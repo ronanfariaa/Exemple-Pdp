@@ -373,6 +373,7 @@ function applyFilters(): void {
 function sortByLowestPrice(): void {
   const productsContainer: HTMLElement | null =
     document.querySelector(".product-grid");
+  
   if (productsContainer) {
     const products: HTMLElement[] = Array.from(
       productsContainer.children
@@ -383,7 +384,9 @@ function sortByLowestPrice(): void {
       const priceB: number = parseFloat(b.dataset.price);
       return priceA - priceB;
     });
-
+    while (productsContainer.firstChild) {
+      productsContainer.removeChild(productsContainer.firstChild);
+    }
     products.forEach((product) => {
       productsContainer.appendChild(product);
     });
@@ -393,6 +396,7 @@ function sortByLowestPrice(): void {
 function sortByHighestPrice(): void {
   const productsContainer: HTMLElement | null =
     document.querySelector(".product-grid");
+  
   if (productsContainer) {
     const products: HTMLElement[] = Array.from(
       productsContainer.children
@@ -403,25 +407,26 @@ function sortByHighestPrice(): void {
       const priceB: number = parseFloat(b.dataset.price);
       return priceB - priceA;
     });
-
+    while (productsContainer.firstChild) {
+      productsContainer.removeChild(productsContainer.firstChild);
+    }
     products.forEach((product) => {
       productsContainer.appendChild(product);
     });
   }
 }
 
-const sortLowestPriceButton: HTMLElement | null =
-  document.querySelector(".sort-lowest-price");
-const sortHighestPriceButton: HTMLElement | null = document.querySelector(
-  ".sort-highest-price"
-);
+const sortSelect: HTMLSelectElement | null = document.querySelector("#sort-select");
 
-if (sortLowestPriceButton) {
-  sortLowestPriceButton.addEventListener("click", sortByLowestPrice);
-}
-
-if (sortHighestPriceButton) {
-  sortHighestPriceButton.addEventListener("click", sortByHighestPrice);
+if (sortSelect) {
+  sortSelect.addEventListener("change", () => {
+    const selectedOption: string | null = sortSelect.value;
+    if (selectedOption === "priceLow") {
+      sortByLowestPrice();
+    } else if (selectedOption === "priceHigh") {
+      sortByHighestPrice();
+    }
+  });
 }
 
 const cartCountElement: HTMLElement | null =
