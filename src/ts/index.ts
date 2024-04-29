@@ -3,7 +3,7 @@ import { Product, SortOption } from "./Product";
 const serverUrl: string = "http://localhost:5000/products";
 
 let productsLoaded: number = 0;
-const productsPerPage: number = 14;
+const productsPerPage: number = 9;
 
 let cartItems: Product[] = [];
 
@@ -465,7 +465,7 @@ function closeCartModal(): void {
 }
 
 const loadMoreButton: HTMLElement | null =
-  document.querySelector(".load-more-button");
+  document.querySelector(".load-more");
 if (loadMoreButton) {
   loadMoreButton.addEventListener("click", loadMoreProducts);
 }
@@ -483,7 +483,7 @@ async function loadMoreProducts(): Promise<void> {
       await setupFilters();
       if (productsLoaded >= 14) {
         const loadMoreButton: HTMLElement | null =
-          document.querySelector(".load-more-button");
+          document.querySelector(".load-more");
         if (loadMoreButton) {
           loadMoreButton.setAttribute("disabled", "true");
         }
