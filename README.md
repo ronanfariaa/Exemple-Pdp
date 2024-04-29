@@ -2,7 +2,24 @@
 
 ## Description
 
-Brief description of the project.
+### Requisitos Obrigatórios
+
+- [Crie um fork desse projeto;](https://github.com/Cadastra-Next-Gen-Company/desenvolvedor-cadastra/fork)
+- No seu fork, codifique o layout seguindo as instruções abaixo;
+- Atualize o readme com as instruções necessárias para rodar o seu código;
+- Adicione também seu e-mail de contato ao readme do projeto ( caso seu e-mail do github esteja privado )
+- envie para [vinicius.delfino@cadastra.com](mailto:vinicius.delfino@cadastra.com?subject=Vaga%20DEV%20-%20Cadastra) com cópia para [andresa.klein@cadastra.com](mailto:andresa.klein?subject=Vaga%20DEV%20-%20Cadastra)
+
+- Html5, css3;
+- Javascript/Typescript;
+- Consumo de APIs.
+- Versionamento Git;
+- Grunt/gulp;
+- Sass/less;
+- Nodejs
+- Sites responsivos;
+- Iniciativa, criatividade e colaboração;
+- Boas práticas: reutilização de código, semântica, organização, performance.
 
 ## Setup
 
