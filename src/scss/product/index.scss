@@ -1,0 +1,664 @@
+// Importações
+@import "reset";
+
+// Variáveis de Cores
+$preto: #000000;
+$primaria: #fb953e;
+$branco: #ffffff;
+$texto: #333333;
+
+// Variáveis de Layout
+$desktop: 1027px;
+$tablet: 768px;
+
+// Fonte
+$font-family: "Open Sans",
+sans-serif;
+
+// Estilos gerais
+body {
+  font-family: $font-family;
+  color: $texto;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+li>label>span {
+  position: relative;
+  top: -6px;
+}
+
+input[name="color"],
+input[name="price"] {
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+  }
+
+  &:checked::before {
+    background-color: $primaria;
+    /* Preenche o checkbox com laranja quando selecionado */
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  box-sizing: border-box; // Adicionado para incluir o preenchimento e a borda na largura total
+
+  @media screen and (max-width: $desktop) {
+    flex-direction: column;
+  }
+}
+
+// Variáveis de Cores
+$primaria: #fb953e;
+$branco: #ffffff;
+
+header {
+  background-color: $branco; // Cor de fundo do cabeçalho
+  color: $preto; // Cor do texto
+  border-bottom: 1px solid #ccc;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; // Adiciona um espaçamento interno
+
+    @media screen and (min-width: $desktop) {
+      width: 1200px;
+    }
+
+    margin: 0 auto;
+
+    .header--img img {
+      width: 100px; // Tamanho da imagem do logo
+    }
+
+    .cart {
+      position: relative;
+
+      .cart-icon {
+        font-size: 24px; // Tamanho do ícone do carrinho
+      }
+
+      .cart-count {
+        background-color: #fa7a0c;
+        color: #ffffff;
+        border-radius: 64%;
+        padding: 0px 2px;
+        position: absolute;
+        top: 7px;
+        right: -5px;
+      }
+    }
+  }
+}
+
+// Estilos para os filtros
+.filters {
+  width: 25%;
+  margin-bottom: 20px;
+
+  .size-container {
+    display: block;
+    padding: 0px 0 0 15px;
+
+    @media screen and (max-width: $desktop) {
+      display: none;
+    }
+  }
+
+  #price-filter {
+    div {
+      ul {
+        li {
+          span {
+            position: relative;
+            top: -7px;
+          }
+        }
+      }
+    }
+  }
+
+  #color-filter,
+  #price-filter {
+    ul {
+      @media screen and (max-width: $desktop) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: $desktop) {
+    width: 100%;
+    // position: absolute;
+    background: #fff;
+    height: 100%;
+  }
+
+  @media screen and (max-width: $desktop) {
+    .filters-container {
+      display: none;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    color: $preto;
+    margin-top: 0;
+    font-size: 32px;
+    font-weight: 400;
+    color: $texto;
+    line-height: 43.58px;
+    text-align: left;
+    margin-bottom: 15%;
+
+    @media screen and (max-width: $desktop) {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+
+  ul,
+  ol {
+    list-style: none; // Removendo os marcadores de lista
+    padding: 0; // Removendo o preenchimento padrão das listas
+  }
+
+  .filter-section {
+    margin-bottom: 20px;
+
+    /* Estilo padrão da seta */
+    .arrow {
+      @media screen and (min-width: $desktop) {
+        display: none;
+      }
+
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 5px solid #000;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+      /* Adiciona transição para a animação da rotação */
+      transform: rotate(180deg);
+    }
+
+    /* Estilo da seta quando rotacionada */
+    .arrow.rotated {
+      transform: rotate(270deg);
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: $preto;
+
+      @media screen and (max-width: $desktop) {
+        margin-top: 0;
+        color: #000000;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 29.96px;
+        padding: 0 0 0 15px;
+        margin-bottom: 3%;
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        width: 90%;
+      }
+    }
+
+    ul {
+      padding: 0px 0 0 15px;
+
+      li {
+        margin-bottom: 5px;
+
+        button[type="button"] {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-right: 5px;
+          position: relative;
+
+          &[aria-pressed="true"] {
+            border-color: #fb953e;
+          }
+        }
+      }
+    }
+  }
+
+  #size-filter button {
+    background: transparent;
+    margin: 3px;
+    width: 32px;
+    height: 32px;
+    border: solid 1px #ccc; // Definindo a borda padrão
+    cursor: pointer; // Adicionando o cursor pointer
+    transition: border-color 0.3s ease; // Transição suave para a mudança de cor da borda
+
+    // Adicionando a cor laranja quando o botão estiver pressionado
+    &[aria-pressed="true"] {
+      border-color: #fb953e; // Alterando a cor da borda para laranja
+    }
+
+    // Mantendo a borda sólida com a cor laranja após clicar
+    &:active {
+      border-style: solid; // Mantendo a borda sólida
+      border-color: #fb953e; // Alterando a cor da borda para laranja
+    }
+
+    // Alterando a cor da borda para laranja quando houver foco
+    &:focus {
+      border-color: #fb953e; // Alterando a cor da borda para laranja
+      outline: none; // Removendo o contorno padrão
+    }
+
+    // Alterando a cor da borda para laranja quando o mouse passar por cima
+    &:hover {
+      border-color: #fb953e; // Alterando a cor da borda para laranja
+    }
+  }
+}
+
+// Estilos para a vitrine de produtos
+.products {
+  width: 75%;
+  padding: 20px;
+
+  @media screen and (max-width: $desktop) {
+    width: 90%; // Reduzindo um pouco a largura para evitar espaços em telas menores
+  }
+
+  .filter-toggle,
+  .sort-toggle {
+    padding: 8px;
+    width: 142px;
+    background: transparent;
+    border: solid 1px;
+
+    @media screen and (min-width: $desktop) {
+      display: none;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    color: $texto;
+  }
+
+  .sort-section {
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+
+    @media screen and (max-width: $desktop) {
+      justify-content: center;
+    }
+
+    justify-content: end;
+    margin-bottom: 5%;
+    margin-top: -10px;
+
+    #sort-select {
+      padding: 8px;
+      width: 142px;
+      border: solid 1px;
+
+      @media screen and (max-width: $desktop) {
+        display: none;
+      }
+    }
+
+    h3 {
+      margin-top: 0;
+      color: $preto;
+    }
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @media screen and (min-width: $tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+  }
+
+  .product {
+    padding: 10px;
+    background-color: $branco;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+    justify-content: center; // Adicionei essa linha para centralizar verticalmente
+    text-align: center; // Adicione essa linha para centralizar horizontalmente
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px; // Adicionei margem inferior para espaçamento
+    }
+
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: $texto;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 19.07px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 5px 0;
+      color: $texto;
+      text-align: center;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .parcelamento {
+      margin-bottom: 10px; // Adicionei margem inferior para espaçamento
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21.79px;
+      text-align: left;
+    }
+
+    button {
+      background-color: $preto;
+      color: $branco;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      padding: 7px 49px 7px 49px;
+
+      &:hover {
+        background-color: darken($primaria, 10%);
+      }
+    }
+  }
+
+  .load-more {
+    margin-top: 20px;
+    width: 100%;
+    background-color: $primaria;
+    color: $branco;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Estilos para o modal
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000; // Z-index alto para ficar acima de outros elementos
+
+  &.show {
+    display: block; // Exibir quando a classe .show é adicionada
+  }
+
+  .modal-container {
+    width: 100%; // Largura do modal
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: solid 1px;
+
+      h2 {
+        margin: 0;
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .modal-section {
+      display: flex;
+      flex-direction: column;
+
+      button {
+        margin-bottom: 10px;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+}
+
+// Estilos para dispositivos móveis
+@media (max-width: 767px) {
+  .modal-overlay {
+    .modal-container {
+      .modal-section {
+        flex-direction: column;
+        padding: 0px 0 0 20px;
+
+        button {
+          margin-right: 10px;
+          margin-bottom: 0;
+        }
+      }
+
+      .modal-footer {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1027px) {
+
+  // Estilos para filtros
+  .filters {
+    .filters-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      height: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      border-bottom: solid 1px;
+      margin-bottom: 5%;
+
+      h3 {
+        margin: 0;
+        padding: 15px;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 38.13px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #333;
+        padding: 6px;
+      }
+    }
+  }
+
+  // Estilos gerais
+  .modal-section {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 29.96px;
+    text-align: left;
+
+    a {
+      text-decoration: none;
+      color: #000;
+      margin-bottom: 2%;
+    }
+  }
+
+  .modal-overlay .modal-container .modal-header h2 {
+    margin: 0;
+    padding: 15px;
+  }
+
+  body>div>div>div.modal-header>h2 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 38.13px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .modal-overlay .modal-container .modal-header .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    padding: 20px;
+  }
+
+  .modal-overlay .modal-container {
+    width: 100%;
+  }
+}
+
+// Estilos para o rodapé
+footer {
+  background-color: $preto;
+  color: $branco;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-filter {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+
+  button {
+    padding: 8px 31px 8px 31px;
+    width: 45%;
+    background-color: transparent;
+    border: solid 1px;
+
+    &:hover {
+      background-color: $primaria;
+      color: $branco;
+      border: solid 1px $preto;
+    }
+  }
+}

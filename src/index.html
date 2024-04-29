@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Loja</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <div class="header--img">
+        <img src="./img/cadastra.svg" alt="Logo da loja">
+      </div>
+      <div class="cart">
+        <span class="cart-icon"><img src="./img/bag.svg" alt="Logo da loja"></span>
+        <span class="cart-count">0</span>
+      </div>
+    </section>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <h2>Blusas</h2>
+      <div class="filters-container ">
+        <div class="filter-section " id="color-filter">
+          <h3>Cores</h3>
+        </div>
+        <div class="filter-section " id="size-filter">
+          <h3>Tamanhos</h3>
+        </div>
+        <div class="filter-section " id="price-filter">
+          <h3>Preço</h3>
+        </div>
+      </div>
+    </section>
+    <section class="products">
+      <div class="sort-section">
+        <button class="filter-toggle">Filtro</button>
+        <button class="sort-toggle">Ordernar</button>
+
+        <select id="sort-select">
+          <option value="name">Ordenar por:</option>
+          <option value="date">Mais Recentes</option>
+          <option value="priceLow">Preço mais baixo</option>
+          <option value="priceHigh">Preço mais alto</option>
+        </select>
+      </div>
+      <div class="product-grid">
+      </div>
+      <button class="load-more">Mostrar Mais Produtos</button>
+    </section>
+  </main>
+
+  <footer>
+
+    <p>&copy; 2024 Minha Loja Online</p>
+  </footer>
+
+  <script src="./bundle.js" type="module"></script>
+</body>
+
+</html>
